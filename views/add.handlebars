@@ -1,7 +1,9 @@
 <h1>Добавить контакт</h1>
 
 <div class="contacts-list">
-    {{> contactList}}
+    {{#each contacts}}
+        <button class="contact-btn" disabled style="opacity: 0.5; cursor: not-allowed;">{{this.name}} - {{this.phone}}</button>
+    {{/each}}
 </div>
 
 <form method="POST" action="/Add">

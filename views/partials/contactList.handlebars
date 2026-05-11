@@ -2,7 +2,7 @@
     {{#if ../isUpdatePage}}
         <a href="/Update?id={{this.id}}" class="contact-btn">{{this.name}} - {{this.phone}}</a>
     {{else if ../isAddPage}}
-        <a href="/Add" class="contact-btn">{{this.name}} - {{this.phone}}</a>
+        <button class="contact-btn" disabled style="opacity: 0.5; cursor: not-allowed;">{{this.name}} - {{this.phone}}</button>
     {{else}}
         <a href="/Update?id={{this.id}}" class="contact-btn">{{this.name}} - {{this.phone}}</a>
     {{/if}}

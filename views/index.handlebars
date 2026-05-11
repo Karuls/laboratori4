@@ -1,7 +1,9 @@
 <h1>Телефонный справочник</h1>
 
 <div class="contacts-list">
-    {{> contactList}}
+    {{#each contacts}}
+        <a href="/Update?id={{this.id}}" class="contact-btn">{{this.name}} - {{this.phone}}</a>
+    {{/each}}
 </div>
 
 <div class="add-btn-container">
