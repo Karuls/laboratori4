@@ -1,0 +1,9 @@
+{{#each contacts}}
+    {{#if ../isUpdatePage}}
+        <a href="/Update?id={{this.id}}" class="contact-btn">{{this.name}} - {{this.phone}}</a>
+    {{else if ../isAddPage}}
+        <a href="/Add" class="contact-btn">{{this.name}} - {{this.phone}}</a>
+    {{else}}
+        <a href="/Update?id={{this.id}}" class="contact-btn">{{this.name}} - {{this.phone}}</a>
+    {{/if}}
+{{/each}}

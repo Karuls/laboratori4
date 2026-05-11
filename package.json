@@ -1,0 +1,16 @@
+{
+  "name": "phonebook-app",
+  "version": "1.0.0",
+  "description": "Телефонный справочник на Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

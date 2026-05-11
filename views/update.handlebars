@@ -1,0 +1,24 @@
+<h1>Изменить контакт</h1>
+
+<div class="contacts-list">
+    {{> contactList}}
+</div>
+
+<form method="POST" action="/Update">
+    <input type="hidden" name="id" value="{{selectedContact.id}}">
+    <div class="form-group">
+        <input type="text" id="updateInput" name="name" value="{{selectedContact.name}}" placeholder="ФИО" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" id="phoneInput" name="phone" value="{{selectedContact.phone}}" placeholder="Телефон" required>
+    </div>
+    <div class="actions">
+        <button type="submit" class="btn btn-primary">Изменить</button>
+        {{{cancelButton "/"}}}
+    </div>
+</form>
+
+<form method="POST" action="/Delete" style="text-align: center; margin-top: 10px;">
+    <input type="hidden" name="id" value="{{selectedContact.id}}">
+    <button type="submit" id="deleteBtn" class="btn btn-danger">Удалить</button>
+</form>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Телефонный справочник</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contacts-list {
+            margin: 20px 0;
+        }
+        
+        .contact-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .contact-btn:hover:not(:disabled) {
+            background: #bc2bec;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .contact-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .form-group {
+            margin: 20px 0;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #bc2bec;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #bc2bec;
+            color: white;
+        }
+        
+        .btn-primary:hover:not(:disabled) {
+            background:  #d250fd;
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover:not(:disabled) {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .btn-cancel {
+            background: #95a5a6;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-cancel:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .add-btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {{{body}}}
+    </div>
+    
+    <script>
+        const updateInput = document.getElementById('updateInput');
+        const phoneInput = document.getElementById('phoneInput');
+        const deleteBtn = document.getElementById('deleteBtn');
+        
+        function checkChanged() {
+            if (!deleteBtn) return;
+            const nameChanged = updateInput && updateInput.value.trim() !== updateInput.defaultValue.trim();
+            const phoneChanged = phoneInput && phoneInput.value.trim() !== phoneInput.defaultValue.trim();
+            deleteBtn.disabled = nameChanged || phoneChanged;
+        }
+        
+        if (updateInput) updateInput.addEventListener('input', checkChanged);
+        if (phoneInput) phoneInput.addEventListener('input', checkChanged);
+    </script>
+</body>
+</html>
